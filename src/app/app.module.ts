@@ -26,6 +26,8 @@ const pages = [
 import { routing } from './app.routes';
 import { MenuWidgetComponent } from './widgets/menu-widget/menu-widget.component';
 import { HeaderWidgetComponent } from './widgets/header-widget/header-widget.component';
+import {CanActivateGuard} from './services/CanActivateGuard';
+import {UserService} from './services/UserService';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,7 @@ import { HeaderWidgetComponent } from './widgets/header-widget/header-widget.com
     NgxAdminLteModule,
     routing
   ],
-  providers: [],
+  providers: [CanActivateGuard, UserService],
   bootstrap: [
     AppComponent
   ],

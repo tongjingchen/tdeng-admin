@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { User, UserService } from 'ngx-admin-lte';
+
 import { Router } from '@angular/router';
+import {UserService} from '../../services/UserService';
+import {User} from '../../models/User';
 
 @Component({
   selector: 'app-login',
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit {
     // si retour positif, log le user
     if ( 1 === 1 ) {
 
+      console.log('log succeed');
       const user1 = new User( {
           avatarUrl: 'assets/img/user2-160x160.jpg',
           email: 'weber.antoine@outlook.com',
