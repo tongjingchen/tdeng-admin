@@ -16,10 +16,12 @@ export class CanActivateGuard implements CanActivate {
     }
 
     public canActivate() {
+        return true;
         // test here if you user is logged
-        if ( !this.connected ) {
+       /* if ( !this.connected ) {
             this.router.navigate( [ 'login' ] );
         }
-        return this.connected;
+        // return this.connected;
+        return true;*/
     }
 }
