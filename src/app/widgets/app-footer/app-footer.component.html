@@ -1,0 +1,7 @@
+<!-- Main Footer -->
+<footer class="main-footer">
+	<!-- To the right -->
+	<div class="pull-right hidden-xs" [innerHTML]="footer?.right_part | safeHtml"></div>
+	<!-- Default to the left -->
+	<div [innerHtml]="footer?.left_part | safeHtml"></div>
+</footer>

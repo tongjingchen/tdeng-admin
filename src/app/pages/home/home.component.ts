@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { BreadcrumbService , Message , MessagesService , User } from 'ngx-admin-lte';
+import {MessagesService} from '../../services/messages.service';
+import {BreadcrumbService} from '../../services/breadcrumb.service';
 
 @Component({
   selector: 'app-home',

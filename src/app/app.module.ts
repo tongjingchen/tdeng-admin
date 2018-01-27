@@ -6,9 +6,6 @@ import { HttpModule } from '@angular/http';
 // components
 import { AppComponent } from './app.component';
 
-// modules
-import { NgxAdminLteModule } from 'ngx-admin-lte';
-
 // les pages
 import { HomeComponent } from './pages/home/home.component';
 import { PageNumComponent } from './pages/page-num/page-num.component';
@@ -26,30 +23,79 @@ const pages = [
 import { routing } from './app.routes';
 import { MenuWidgetComponent } from './widgets/menu-widget/menu-widget.component';
 import { HeaderWidgetComponent } from './widgets/header-widget/header-widget.component';
-import {CanActivateGuard} from './services/CanActivateGuard';
-import {UserService} from './services/UserService';
+import {UserService} from './services/user.service';
+import {CanActivateGuard} from './services/can-activate-auard.service';
+import {AppFooterComponent} from './widgets/app-footer';
+import {AppHeaderComponent} from './widgets/app-header';
+import {MenuAsideComponent} from './widgets/menu-aside';
+import {ControlSidebarComponent} from './widgets/control-sidebar/control-sidebar.component';
+import {LayoutAuthComponent} from './system/auth/auth';
+import {LayoutLoginComponent} from './system/login/login.component';
+import {LayoutRegisterComponent} from './system/register/register.component';
+import {TranslateService} from './services/translate.service';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {ToasterModule} from 'angular2-toaster';
+import {RouterModule} from '@angular/router';
+import {BreadcrumbComponent} from './widgets/breadcrumb';
+import {MenuService} from './services/menu.service';
+import {LogoService} from './services/logo.service';
+import {FooterService} from './services/footer.service';
+import {BreadcrumbService} from './services/breadcrumb.service';
+import {MessagesService} from './services/messages.service';
+import {NotificationsService} from './services/notifications.service';
+import {LoggerService} from './services/logger.service';
+import {LogoComponent} from './widgets/logo/logo.component';
+import {SafeHtmlPipe} from './pipes/safe-html.pipes';
+import {ComponentLoaderComponent} from './widgets/component-loader/component-loader.component';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+    return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     ...pages,
     MenuWidgetComponent,
-    HeaderWidgetComponent
+    HeaderWidgetComponent,
+    LayoutAuthComponent, LayoutLoginComponent, LayoutRegisterComponent, AppFooterComponent, AppHeaderComponent,
+      MenuAsideComponent, ControlSidebarComponent, BreadcrumbComponent, LogoComponent, SafeHtmlPipe, ComponentLoaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    NgxAdminLteModule,
-    routing
+    ToasterModule,
+    RouterModule,
+    HttpClientModule,
+    routing,
+      TranslateModule.forRoot({
+          loader: {
+              provide: TranslateLoader,
+              useFactory: (HttpLoaderFactory),
+              deps: [HttpClient]
+          }
+      }),
   ],
-  providers: [CanActivateGuard, UserService],
+  providers: [CanActivateGuard,
+      UserService,
+      TranslateService,
+      MenuService,
+      LogoService,
+      FooterService,
+      BreadcrumbService,
+      MessagesService,
+      NotificationsService,
+      LoggerService
+  ],
   bootstrap: [
     AppComponent
   ],
   entryComponents: [
-    MenuWidgetComponent,
-    HeaderWidgetComponent
+      MenuWidgetComponent,
+      HeaderWidgetComponent
   ]
 })
 export class AppModule { }

@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  User,
-  MenuService,
-  Message,
-  MessagesService,
-  NotificationsService,
-  Notification,
-  LogoService,
-  FooterService
-} from 'ngx-admin-lte';
 import { MenuWidgetComponent } from './widgets/menu-widget/menu-widget.component';
+import {FooterService} from './services/footer.service';
+import {MenuService} from './services/menu.service';
+import {LogoService} from './services/logo.service';
+import {MessagesService} from './services/messages.service';
+import {NotificationsService} from './services/notifications.service';
+import {User} from './models/user';
+import {Message} from './models/message';
+import {Notification} from './models/notification';
 
 @Component({
   selector: 'app-root',

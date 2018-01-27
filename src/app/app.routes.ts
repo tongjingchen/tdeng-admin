@@ -1,8 +1,6 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {   LayoutAuthComponent, LayoutLoginComponent, LayoutRegisterComponent } from 'ngx-admin-lte';
-
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -10,8 +8,10 @@ import { PageNumComponent } from './pages/page-num/page-num.component';
 
 // Components
 import { HeaderWidgetComponent } from './widgets/header-widget/header-widget.component';
-import {CanActivateGuard} from './services/CanActivateGuard';
-
+import {CanActivateGuard} from './services/can-activate-auard.service';
+import {LayoutAuthComponent} from './system/auth/auth';
+import {LayoutLoginComponent} from './system/login/login.component';
+import {LayoutRegisterComponent} from './system/register/register.component';
 const routes: Routes = [
   // logged routes
   {

@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Router } from '@angular/router';
-import {UserService} from '../../services/UserService';
-import {User} from '../../models/User';
+import {UserService} from '../../services/user.service';
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-login',
