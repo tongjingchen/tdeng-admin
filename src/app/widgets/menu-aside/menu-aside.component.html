@@ -30,8 +30,8 @@
 		<!-- Sidebar Menu -->
 		<ul class="sidebar-menu" data-widget="tree">
 			<!-- DEPRECATED since 1.0.1 -->
-			<ng-container *ngIf="menu_title !== '' ">
-				<li class="header">{{menu_title}}</li>
+			<ng-container  *ngIf="false">
+				<li class="header">{{'ddddd'}}</li>
 			</ng-container>
 			<!--  循环菜单列表                                                          -->
 			<ng-container *ngFor="let item of links">
@@ -39,12 +39,7 @@
 				<ng-container *ngIf="item.header">
 					<li class="header">{{item.header}}</li>
 				</ng-container>
-				<!-- COMPONENT -->
-				<ng-container *ngIf="item.class">
-					<li>
-						<app-component-loader [class_component]="item.class" [data]="item.data"></app-component-loader>
-					</li>
-				</ng-container>
+
 				<!-- LINK -->
 				<ng-container *ngIf="item.link">
 					<li [class.active]="item.link[0] === currentUrl">
@@ -72,7 +67,7 @@
 						<ul class="treeview-menu">
 							<ng-container *ngFor="let subitem of item.sublinks">
 								<li [class.active]="subitem.link[0] === currentUrl">
-									<a *ngIf="!subitem.external" [routerLink]="subitem.link">
+									<a *ngIf="!subitem.external" [routerLink]="subitem.link" (click)="onMenuClick(item,subitem)">
 										<i *ngIf="subitem.icon" class="fa fa-{{subitem.icon}}"></i>
 										<span>{{subitem.title}}</span>
 									</a>

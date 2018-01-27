@@ -23,23 +23,6 @@ export class PageNumComponent implements OnInit, OnDestroy {
     const idkey = 'id';
     this.sub = this.route.params.subscribe((data) => {
       this.id = data[idkey];
-      // changing header
-      this.breadServ.setCurrent({
-        description: 'This is our ' + this.id + ' page',
-        display: true,
-        levels: [
-          {
-            icon: 'dashboard',
-            link: ['/'],
-            title: 'Home'
-          },
-          {
-            icon: 'clock-o',
-            link: ['/page/' + this.id],
-            title: 'Page ' + this.id
-          }
-        ]
-      });
     });
   }
 

@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import {User} from '../../models/user';
 import {UserService} from '../../services/user.service';
+import {BreadcrumbService} from '../../services/breadcrumb.service';
 
 @Component({
   selector: 'app-menu-aside',
@@ -16,7 +17,7 @@ export class MenuAsideComponent implements OnInit, OnChanges {
   @Input() display_menu_user = true;
   @Input() display_menu_search = true;
 
-  constructor(private userServ: UserService, public router: Router) {
+  constructor(private userServ: UserService, public router: Router, public breadServ: BreadcrumbService) {
     // getting the current url
     this.router.events.subscribe((evt: any) => this.currentUrl = evt.url);
     this.userServ.getCurrent().subscribe((user) => this.currentUser = user);
@@ -62,7 +63,7 @@ export class MenuAsideComponent implements OnInit, OnChanges {
                     'link': ['https://github.com/TwanoO67/ngx-admin-lte'],
                     'icon': 'github',
                     'external': true,
-                    'target': '_blank'
+                    'target': '_self'
                 },
                 {
                     'title': 'Yahoo',
@@ -74,9 +75,35 @@ export class MenuAsideComponent implements OnInit, OnChanges {
             ]
         }
     ];
+
   }
 
-  public ngOnChanges(changes: any) {
-  }
+    public onMenuClick(menu: any, submenu: any) {
+        this.breadServ.setCurrent({
+            description: '',
+            display: true,
+            header:  submenu.title,
+            levels: [
+                {
+                    icon: 'dashboard',
+                    link: ['/'],
+                    title: 'Home'
+                },
+                {
+                    icon: '',
+                    link: ['/'],
+                    title: menu.title
+                },
+                {
+                    icon: '',
+                    link: ['/'],
+                    title: submenu.title
+                }
+            ]
+        });
+    }
+
+    public ngOnChanges(changes: any) {
+    }
 
 }
