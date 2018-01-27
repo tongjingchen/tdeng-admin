@@ -10,7 +10,7 @@ import {TranslateService} from '../services/translate.service';
 })
 export class LayoutComponent implements OnInit, OnDestroy {
     public toastrConfig: ToasterConfig;
-    public skin = 'skin-blue';
+    public skin = 'skin-blue'; // 皮肤选择 参考官方
     public display_control = true;
     public display_user = true;
     public display_tasks = true;
@@ -25,7 +25,6 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
     constructor(private toastr: ToasterService, private translate: TranslateService, route: ActivatedRoute) {
         const param = route.snapshot.data[0];
-        this.skin = this.paramExistOrDefault(param, 'skin', 'skin-blue');
         this.display_control = this.paramExistOrDefault(param, 'display_control');
         this.display_user = this.paramExistOrDefault(param, 'display_user');
         this.display_tasks = this.paramExistOrDefault(param, 'display_tasks');

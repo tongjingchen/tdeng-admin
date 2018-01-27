@@ -35,7 +35,6 @@ const routes: Routes = [
     ],
     component: LayoutComponent,
     data: [{
-      'skin': 'skin-black',
       'display_tasks': false,
       'header_components': [{
         class: HeaderWidgetComponent,
