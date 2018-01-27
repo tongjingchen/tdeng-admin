@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { FooterService } from '../../services/footer.service';
 
 @Component( {
     selector: 'app-footer',
@@ -9,7 +8,14 @@ import { FooterService } from '../../services/footer.service';
 export class AppFooterComponent {
     public footer: any = {};
 
-    constructor( private footerServ: FooterService) {
-      this.footerServ.getCurrent().subscribe( footer => this.footer = footer);
+    constructor() {
+        this.footer  = {
+            left_part: `<strong>
+        Copyright &copy; 2017
+        <a href="http://www.weberantoine.fr" >WEBER Antoine</a>.
+    	</strong>
+      Open-source Sharing`,
+            right_part: 'Bootstrapping Ngx-Admin-LTE',
+        };
     }
 }

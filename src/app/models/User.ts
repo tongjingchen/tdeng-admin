@@ -5,7 +5,7 @@ export class User {
     public avatarUrl: string;
     public creationDate: string;
     public preferredLang: string;
-    public connected = false;
+    public connected = false; // 是否登录
 
     public constructor( data: any = {}) {
         this.firstname = data.firstname || '';

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { LogoService } from '../../services/logo.service';
 
 @Component( {
     selector: 'app-logo',
@@ -9,13 +8,13 @@ export class LogoComponent implements OnInit {
   public logo: any;
   @Input() hide = '';
 
-  constructor(
-    private logoServ: LogoService
-  ) { }
+  constructor() { }
 
   public ngOnInit() {
-    this.logoServ.getCurrent().subscribe((logo) => {
-      this.logo = logo;
-    });
+
+      this.logo  = {
+          html_mini: 'NG<b>X</b>',
+          html_lg: '<b>NGX</b>Admin-LTE',
+      };
   }
 }

@@ -12,10 +12,9 @@ export class MenuAsideComponent implements OnInit, OnChanges {
   public currentUrl: string;
   public currentUser: User = new User();
 
-  @Input() links: Array<any> = [];
+  private links: Array<any> = [];
   @Input() display_menu_user = true;
   @Input() display_menu_search = true;
-  @Input() menu_title = ''; // deprecated
 
   constructor(private userServ: UserService, public router: Router) {
     // getting the current url
@@ -23,12 +22,61 @@ export class MenuAsideComponent implements OnInit, OnChanges {
     this.userServ.getCurrent().subscribe((user) => this.currentUser = user);
   }
 
-  public ngOnInit() { }
+  public ngOnInit() {
+    this.links = [
+        {
+            'header': '菜单导航'
+        },
+        {
+            'title': '首页',
+            'icon': 'dashboard',
+            'link': ['/']
+        },
+        {
+            'title': '子菜单',
+            'icon': 'link',
+            'sublinks': [
+                {
+                    'title': 'Page 2',
+                    'link': ['/page/2'],
+                },
+                {
+                    'title': 'Page 3',
+                    'link': ['/page/3'],
+                }
+            ]
+        },
+        {
+            'title': '外部链接',
+            'icon': 'google',
+            'link': ['http://google.com'],
+            'external': true,
+            'target': '_blank'
+        },
+        {
+            'title': '外部链接1',
+            'icon': 'link',
+            'sublinks': [
+                {
+                    'title': 'Github',
+                    'link': ['https://github.com/TwanoO67/ngx-admin-lte'],
+                    'icon': 'github',
+                    'external': true,
+                    'target': '_blank'
+                },
+                {
+                    'title': 'Yahoo',
+                    'link': ['http://yahoo.com'],
+                    'icon': 'yahoo',
+                    'external': true,
+                    'target': '_blank'
+                }
+            ]
+        }
+    ];
+  }
 
   public ngOnChanges(changes: any) {
-    if ( this.menu_title !== '') {
-      console.log('menu_title is deprecated please use "header" in your menuService links configuration');
-    }
   }
 
 }

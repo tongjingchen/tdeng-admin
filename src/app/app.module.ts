@@ -21,13 +21,11 @@ const pages = [
 
 // main bootstrap
 import { routing } from './app.routes';
-import { MenuWidgetComponent } from './widgets/menu-widget/menu-widget.component';
 import { HeaderWidgetComponent } from './widgets/header-widget/header-widget.component';
 import {UserService} from './services/user.service';
 import {CanActivateGuard} from './services/can-activate-auard.service';
 import {AppFooterComponent} from './widgets/app-footer';
 import {AppHeaderComponent} from './widgets/app-header';
-import {MenuAsideComponent} from './widgets/menu-aside';
 import {ControlSidebarComponent} from './widgets/control-sidebar/control-sidebar.component';
 import {LayoutAuthComponent} from './system/auth/auth';
 import {LayoutLoginComponent} from './system/login/login.component';
@@ -39,8 +37,6 @@ import {ToasterModule} from 'angular2-toaster';
 import {RouterModule} from '@angular/router';
 import {BreadcrumbComponent} from './widgets/breadcrumb';
 import {MenuService} from './services/menu.service';
-import {LogoService} from './services/logo.service';
-import {FooterService} from './services/footer.service';
 import {BreadcrumbService} from './services/breadcrumb.service';
 import {MessagesService} from './services/messages.service';
 import {NotificationsService} from './services/notifications.service';
@@ -49,6 +45,7 @@ import {LogoComponent} from './widgets/logo/logo.component';
 import {SafeHtmlPipe} from './pipes/safe-html.pipes';
 import {ComponentLoaderComponent} from './widgets/component-loader/component-loader.component';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {MenuAsideComponent} from './widgets/menu-aside/menu-aside.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
     return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json');
@@ -58,7 +55,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   declarations: [
     AppComponent,
     ...pages,
-    MenuWidgetComponent,
     HeaderWidgetComponent,
     LayoutAuthComponent, LayoutLoginComponent, LayoutRegisterComponent, AppFooterComponent, AppHeaderComponent,
       MenuAsideComponent, ControlSidebarComponent, BreadcrumbComponent, LogoComponent, SafeHtmlPipe, ComponentLoaderComponent
@@ -83,8 +79,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       UserService,
       TranslateService,
       MenuService,
-      LogoService,
-      FooterService,
       BreadcrumbService,
       MessagesService,
       NotificationsService,
@@ -94,7 +88,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AppComponent
   ],
   entryComponents: [
-      MenuWidgetComponent,
       HeaderWidgetComponent
   ]
 })
