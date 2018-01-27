@@ -37,11 +37,11 @@ export class MenuAsideComponent implements OnInit, OnChanges {
             'icon': 'link',
             'sublinks': [
                 {
-                    'title': 'Page 2',
+                    'title': '测试菜单1',
                     'link': ['/page/2'],
                 },
                 {
-                    'title': 'Page 3',
+                    'title': '测试菜单2',
                     'link': ['/page/3'],
                 }
             ]

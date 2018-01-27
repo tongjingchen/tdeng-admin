@@ -27,7 +27,6 @@ import {CanActivateGuard} from './services/can-activate-auard.service';
 import {AppFooterComponent} from './widgets/app-footer';
 import {AppHeaderComponent} from './widgets/app-header';
 import {ControlSidebarComponent} from './widgets/control-sidebar/control-sidebar.component';
-import {LayoutAuthComponent} from './system/auth/auth';
 import {LayoutLoginComponent} from './system/login/login.component';
 import {LayoutRegisterComponent} from './system/register/register.component';
 import {TranslateService} from './services/translate.service';
@@ -36,7 +35,6 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {ToasterModule} from 'angular2-toaster';
 import {RouterModule} from '@angular/router';
 import {BreadcrumbComponent} from './widgets/breadcrumb';
-import {MenuService} from './services/menu.service';
 import {BreadcrumbService} from './services/breadcrumb.service';
 import {MessagesService} from './services/messages.service';
 import {NotificationsService} from './services/notifications.service';
@@ -46,6 +44,7 @@ import {SafeHtmlPipe} from './pipes/safe-html.pipes';
 import {ComponentLoaderComponent} from './widgets/component-loader/component-loader.component';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {MenuAsideComponent} from './widgets/menu-aside/menu-aside.component';
+import {LayoutComponent} from './system/layout.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
     return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json');
@@ -56,7 +55,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AppComponent,
     ...pages,
     HeaderWidgetComponent,
-    LayoutAuthComponent, LayoutLoginComponent, LayoutRegisterComponent, AppFooterComponent, AppHeaderComponent,
+    LayoutComponent, LayoutLoginComponent, LayoutRegisterComponent, AppFooterComponent, AppHeaderComponent,
       MenuAsideComponent, ControlSidebarComponent, BreadcrumbComponent, LogoComponent, SafeHtmlPipe, ComponentLoaderComponent
   ],
   imports: [
@@ -78,7 +77,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   providers: [CanActivateGuard,
       UserService,
       TranslateService,
-      MenuService,
       BreadcrumbService,
       MessagesService,
       NotificationsService,

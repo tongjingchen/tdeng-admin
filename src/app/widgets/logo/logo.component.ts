@@ -13,8 +13,8 @@ export class LogoComponent implements OnInit {
   public ngOnInit() {
 
       this.logo  = {
-          html_mini: 'NG<b>X</b>',
-          html_lg: '<b>NGX</b>Admin-LTE',
+          html_mini: 'TD<b>deng</b>',
+          html_lg: '<b>tdeng</b>Admin',
       };
   }
 }

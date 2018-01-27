@@ -16,8 +16,8 @@ export class BreadcrumbComponent {
     this.breadServ.getCurrent().subscribe((data) => {
       this.display = data.display;
       this.header = data.header;
-      this.description = data.description;
       this.levels = data.levels;
+      this.description = data.description;
     });
   }
 

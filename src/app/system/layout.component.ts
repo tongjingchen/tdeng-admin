@@ -1,16 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from '../../services/user.service';
-import { MenuService } from '../../services/menu.service';
-import { LoggerService } from '../../services/logger.service';
 import { ToasterService, ToasterConfig } from 'angular2-toaster/angular2-toaster';
-import { TranslateService } from '../../services/translate.service';
+import {LoggerService} from '../services/logger.service';
+import {TranslateService} from '../services/translate.service';
 
 @Component( {
-    selector: 'app-layouts-auth',
-    templateUrl: './auth.html'
+    selector: 'app-layouts',
+    templateUrl: './layout.component.html'
 })
-export class LayoutAuthComponent implements OnInit, OnDestroy {
+export class LayoutComponent implements OnInit, OnDestroy {
     public toastrConfig: ToasterConfig;
     public skin = 'skin-blue';
     public display_control = true;
@@ -25,12 +23,7 @@ export class LayoutAuthComponent implements OnInit, OnDestroy {
     public header_components = [];
     private logger: LoggerService;
 
-    constructor(
-      private userServ: UserService,
-      private menuServ: MenuService,
-      private toastr: ToasterService,
-      private translate: TranslateService,
-      route: ActivatedRoute) {
+    constructor(private toastr: ToasterService, private translate: TranslateService, route: ActivatedRoute) {
         const param = route.snapshot.data[0];
         this.skin = this.paramExistOrDefault(param, 'skin', 'skin-blue');
         this.display_control = this.paramExistOrDefault(param, 'display_control');
@@ -54,7 +47,7 @@ export class LayoutAuthComponent implements OnInit, OnDestroy {
     }
 
     private paramExistOrDefault(param: any, index: string, default_value: any = true) {
-      return param.hasOwnProperty(index) ? param[index] : default_value;
+        return param.hasOwnProperty(index) ? param[index] : default_value;
     }
 
     public ngOnInit(): void {
@@ -69,11 +62,11 @@ export class LayoutAuthComponent implements OnInit, OnDestroy {
             window.dispatchEvent( event );
         }
 
-      document.body.className = 'hold-transition ' + this.skin + ' sidebar-mini';
+        document.body.className = 'hold-transition ' + this.skin + ' sidebar-mini';
     }
 
     public ngOnDestroy(): void {
-      document.body.className = '';
+        document.body.className = '';
     }
 
     protected detectIE(): boolean {

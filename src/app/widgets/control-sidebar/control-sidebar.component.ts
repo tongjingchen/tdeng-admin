@@ -5,6 +5,9 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['./control-sidebar.component.css'],
     templateUrl: './control-sidebar.component.html'
 })
+/**
+ *  右侧弹出栏
+ */
 export class ControlSidebarComponent {
 
   constructor() { }

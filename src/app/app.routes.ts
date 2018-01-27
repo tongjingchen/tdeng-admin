@@ -9,9 +9,9 @@ import { PageNumComponent } from './pages/page-num/page-num.component';
 // Components
 import { HeaderWidgetComponent } from './widgets/header-widget/header-widget.component';
 import {CanActivateGuard} from './services/can-activate-auard.service';
-import {LayoutAuthComponent} from './system/auth/auth';
 import {LayoutLoginComponent} from './system/login/login.component';
 import {LayoutRegisterComponent} from './system/register/register.component';
+import {LayoutComponent} from './system/layout.component';
 const routes: Routes = [
   // logged routes
   {
@@ -33,7 +33,7 @@ const routes: Routes = [
         path: 'page/:id'
       },
     ],
-    component: LayoutAuthComponent,
+    component: LayoutComponent,
     data: [{
       'skin': 'skin-black',
       'display_tasks': false,
