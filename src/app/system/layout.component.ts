@@ -1,8 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToasterService, ToasterConfig } from 'angular2-toaster/angular2-toaster';
-import {LoggerService} from '../services/logger.service';
-import {TranslateService} from '../services/translate.service';
 
 @Component( {
     selector: 'app-layouts',
@@ -21,9 +19,8 @@ export class LayoutComponent implements OnInit, OnDestroy {
     public menu_title = ''; // deprecated
     public display_logout = false;
     public header_components = [];
-    private logger: LoggerService;
 
-    constructor(private toastr: ToasterService, private translate: TranslateService, route: ActivatedRoute) {
+    constructor(private toastr: ToasterService, route: ActivatedRoute) {
         const param = route.snapshot.data[0];
         this.display_control = this.paramExistOrDefault(param, 'display_control');
         this.display_user = this.paramExistOrDefault(param, 'display_user');

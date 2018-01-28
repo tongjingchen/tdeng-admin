@@ -28,7 +28,6 @@ export class PageNumComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy() {
     this.sub.unsubscribe();
-    this.breadServ.clear();
     this.route = null;
   }
 }

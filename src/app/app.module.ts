@@ -2,24 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
-// components
 import { AppComponent } from './app.component';
-
-// les pages
 import { HomeComponent } from './pages/home/home.component';
 import { PageNumComponent } from './pages/page-num/page-num.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-
-const pages = [
-    HomeComponent,
-    PageNumComponent,
-    LoginComponent,
-    RegisterComponent
-];
-
-// main bootstrap
 import { routing } from './app.routes';
 import { HeaderWidgetComponent } from './widgets/header-widget/header-widget.component';
 import {UserService} from './services/user.service';
@@ -38,17 +25,24 @@ import {BreadcrumbComponent} from './widgets/breadcrumb';
 import {BreadcrumbService} from './services/breadcrumb.service';
 import {MessagesService} from './services/messages.service';
 import {NotificationsService} from './services/notifications.service';
-import {LoggerService} from './services/logger.service';
 import {LogoComponent} from './widgets/logo/logo.component';
 import {SafeHtmlPipe} from './pipes/safe-html.pipes';
 import {ComponentLoaderComponent} from './widgets/component-loader/component-loader.component';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {MenuAsideComponent} from './widgets/menu-aside/menu-aside.component';
 import {LayoutComponent} from './system/layout.component';
+import {CookieService} from 'ngx-cookie-service';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
     return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json');
 }
+
+const pages = [
+    HomeComponent,
+    PageNumComponent,
+    LoginComponent,
+    RegisterComponent
+];
 
 @NgModule({
   declarations: [
@@ -76,11 +70,11 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   providers: [CanActivateGuard,
       UserService,
-      TranslateService,
+     /* TranslateService,*/
       BreadcrumbService,
       MessagesService,
       NotificationsService,
-      LoggerService
+      /*LoggerService,*/ CookieService
   ],
   bootstrap: [
     AppComponent

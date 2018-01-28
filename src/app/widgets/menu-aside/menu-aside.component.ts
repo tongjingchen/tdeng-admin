@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {User} from '../../models/user';
 import {UserService} from '../../services/user.service';
 import {BreadcrumbService} from '../../services/breadcrumb.service';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-menu-aside',
@@ -17,7 +18,10 @@ export class MenuAsideComponent implements OnInit, OnChanges {
   @Input() display_menu_user = true;
   @Input() display_menu_search = true;
 
-  constructor(private userServ: UserService, public router: Router, public breadServ: BreadcrumbService) {
+  constructor(private userServ: UserService,
+              public router: Router,
+              public breadServ: BreadcrumbService,
+              public cookicServ: CookieService) {
     // getting the current url
     this.router.events.subscribe((evt: any) => this.currentUrl = evt.url);
     this.userServ.getCurrent().subscribe((user) => this.currentUser = user);
@@ -79,10 +83,10 @@ export class MenuAsideComponent implements OnInit, OnChanges {
   }
 
     public onMenuClick(menu: any, submenu: any) {
-        this.breadServ.setCurrent({
+        const curMenu = {
             description: '',
             display: true,
-            header:  submenu.title,
+            header: submenu.title,
             levels: [
                 {
                     icon: 'dashboard',
@@ -100,7 +104,9 @@ export class MenuAsideComponent implements OnInit, OnChanges {
                     title: submenu.title
                 }
             ]
-        });
+        };
+        this.breadServ.setCurrent(curMenu);
+        this.cookicServ.set('menu_cookie', JSON.stringify(curMenu));
     }
 
     public ngOnChanges(changes: any) {

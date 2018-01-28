@@ -35,7 +35,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy() {
     // removing the header
-    this.breadServ.clear();
   }
 
 }
