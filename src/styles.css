@@ -5,7 +5,8 @@
 @import "../node_modules/admin-lte/dist/css/skins/skin-blue.css";
 @import "../node_modules/ionicons/dist/css/ionicons.css";
 @import "../node_modules/angular2-toaster/toaster.css";
-
+/*// 表格css*/
+@import "../node_modules/admin-lte/plugins/datatables/dataTables.bootstrap.css";
 
 .loading {
     opacity: 0;

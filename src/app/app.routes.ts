@@ -7,7 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { PageNumComponent } from './pages/page-num/page-num.component';
 
 // Components
-import { HeaderWidgetComponent } from './widgets/header-widget/header-widget.component';
+import { HeaderWidgetComponent } from './system/header-widget/header-widget.component';
 import {CanActivateGuard} from './services/can-activate-auard.service';
 import {LayoutLoginComponent} from './system/login/login.component';
 import {LayoutRegisterComponent} from './system/register/register.component';
