@@ -1,26 +1,22 @@
 <div class="row">
     <div class="col-sm-5">
-        <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1
-            to 10 of 57 entries
+        <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">共 {{page.totalCnt}}  条
         </div>
     </div>
     <div class="col-sm-7">
-        <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+        <div class="dataTables_paginate paging_simple_numbers">
             <ul class="pagination">
-                <li class="paginate_button previous disabled" id="example2_previous"><a href="#"
-                                                                                        aria-controls="example2"
-                                                                                        data-dt-idx="0"
-                                                                                        tabindex="0">Previous</a>
+                <li [ngClass]="page.currentPage==1?'paginate_button previous disabled':'paginate_button previous'">
+                    <a href="#"  (click)="prevPage()">上一页</a>
                 </li>
 
                  <!-- class="paginate_button active"  -->
                 <li  *ngFor="let item of pageList" [ngClass]="{'paginate_button active': item==page.currentPage}">
-                    <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" (click)="page.currentPage=item">{{item}}</a>
+                    <a href="#"  tabindex="0" (click)="thisPage(item)">{{item}}</a>
                 </li>
 
-                <li class="paginate_button next" id="example2_next"><a href="#"
-                                                                       aria-controls="example2"
-                                                                       data-dt-idx="7" tabindex="0" (click)="nextPage()">Next</a>
+                <li [ngClass]="page.currentPage==pageNums?'paginate_button next disabled':'paginate_button next'">
+                    <a href="#"  (click)="nextPage()">下一页</a>
                 </li>
             </ul>
         </div>

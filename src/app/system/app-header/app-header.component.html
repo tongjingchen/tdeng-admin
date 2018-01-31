@@ -6,11 +6,21 @@
 	<nav class="navbar navbar-static-top" role="navigation">
 		<!-- Sidebar toggle button-->
 		<a class="sidebar-toggle" data-toggle="offcanvas" role="button">
-			<!-- ADMIN LTE 2.4.0  <a class="sidebar-toggle" data-toggle="push-menu" role="button"> -->
-      <span class="sr-only">Toggle navigation</span>
+			<span class="sr-only">Toggle navigation</span>
 		</a>
+		<ul  class="nav nav-tabs" style="width: 500px;float: left;padding-bottom: 0px;margin-top: 8px;display: block">
+			<li class="active">
+				<a href="#home" data-toggle="tab">
+					菜鸟教程
+				</a>
+			</li>
+			<li><a href="#ios" data-toggle="tab">iOS</a></li>
+			<li><a href="#ios" data-toggle="tab">iOS</a></li>
+			<li><a href="#ios" data-toggle="tab">iOS</a></li>
+		</ul>
 		<!-- Navbar Right Menu -->
 		<div class="navbar-custom-menu">
+
 			<ul class="nav navbar-nav" >
 				<!-- Messages: style can be found in dropdown.less-->
 				<li class="dropdown messages-menu messagesBox" *ngIf="display_messages"></li>
@@ -20,6 +30,8 @@
 				<li class="dropdown tasks-menu tasksBox" *ngIf="display_tasks"></li>
 				<!-- User Account Menu -->
         <li class="dropdown user user-menu userBox" *ngIf="display_user"></li>
+
+
                 <li  >
 					<button class="btn btn-primary btn-lg" (click)="logout()">
 						<i class="fa fa-power-off"></i>

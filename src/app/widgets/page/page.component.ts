@@ -19,23 +19,52 @@ export class PageComponent implements OnInit, OnDestroy {
         // TODO
     }
 
+
+    public thisPage(item) {
+        this.page.currentPage = item;
+        this.loadPages();
+    }
+
     public nextPage() {
-        this.onPageChange.emit(33);
+        if ( this.page.currentPage < this.pageNums){
+            this.page.currentPage  = this.page.currentPage+1;
+            this.loadPages();
+        }
+    }
+
+    public prevPage() {
+        if ( this.page.currentPage >1){
+            this.page.currentPage  = this.page.currentPage-1;
+            this.loadPages();
+        }
     }
 
     public ngOnInit() {
-        this.pageNums = Math.ceil(this.page.totalCnt / this.page.itemsPerPage);
-        console.log(this.pageNums)
-        for (let i=1;i<7;i++)
-        {
-            this.pageList.push(i);
-        }
-
-
+        this.loadPages();
     }
 
     public ngOnDestroy() {
         // removing the header
     }
+    public loadPages() {
+        const pagelength = 3;
+        this.onPageChange.emit(this.page.currentPage ); // 触发查询翻页
+        this.pageList = [];
+        this.pageNums = Math.ceil(this.page.totalCnt / this.page.itemsPerPage);
 
+        for (let i=this.page.currentPage-pagelength;i<this.page.currentPage;i++)
+        {
+            if (i>0){
+                this.pageList.push(i);
+            }
+        }
+        this.pageList.push(this.page.currentPage);
+        let rightindex = this.page.currentPage + 1;
+        while ((rightindex < this.pageNums) && ( rightindex - this.page.currentPage <= pagelength ) )
+        {
+            this.pageList.push(rightindex);
+            rightindex ++;
+        }
+
+    }
 }

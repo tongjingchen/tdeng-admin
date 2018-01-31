@@ -29,17 +29,14 @@ export class HomeComponent implements OnInit, OnDestroy {
                 }
             ]
         });
-        this.page = new Page(1, 10, 8001);
+        this.page = new Page(1, 10, 101);
 
 
     }
     // 页面变化重新加载页面
     public chgPage(curPage: number ) {
         this.page.currentPage  = curPage;
-
-
-
-
+        // 重新查询
         console.log(curPage);
     }
 
