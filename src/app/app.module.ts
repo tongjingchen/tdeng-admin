@@ -32,6 +32,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {MenuAsideComponent} from './system/menu-aside/menu-aside.component';
 import {LayoutComponent} from './system/layout.component';
 import {CookieService} from 'ngx-cookie-service';
+import {PageComponent} from './widgets/page/page.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
     return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json');
@@ -41,7 +42,8 @@ const pages = [
     HomeComponent,
     PageNumComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PageComponent
 ];
 
 @NgModule({
