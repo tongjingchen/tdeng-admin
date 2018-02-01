@@ -100,7 +100,7 @@ export class MenuAsideComponent implements OnInit, OnChanges {
                 },
                 {
                     icon: '',
-                    link: ['/'],
+                    link: submenu.link,
                     title: submenu.title
                 }
             ]

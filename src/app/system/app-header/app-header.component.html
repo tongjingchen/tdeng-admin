@@ -8,15 +8,15 @@
 		<a class="sidebar-toggle" data-toggle="offcanvas" role="button">
 			<span class="sr-only">Toggle navigation</span>
 		</a>
-		<ul  class="nav nav-tabs" style="width: 500px;float: left;padding-bottom: 0px;margin-top: 8px;display: block">
-			<li class="active">
-				<a href="#home" data-toggle="tab">
-					菜鸟教程
+		<ul  class="nav nav-tabs" style="width: 600px;
+		     float: left;padding-bottom: 0px;margin-top: 8px;display: block;">
+
+			<li [ngClass]="item.active?'active':''" *ngFor="let item of topTabList;" (click)="chgTab(item.menuName)">
+				<a routerLink="{{item.routeUrl}}"  >{{item.menuName}}
+					<i class="fa fa-remove tab-close" (click)="closeTab(item.menuName)"></i>
 				</a>
+
 			</li>
-			<li><a href="#ios" data-toggle="tab">iOS</a></li>
-			<li><a href="#ios" data-toggle="tab">iOS</a></li>
-			<li><a href="#ios" data-toggle="tab">iOS</a></li>
 		</ul>
 		<!-- Navbar Right Menu -->
 		<div class="navbar-custom-menu">
