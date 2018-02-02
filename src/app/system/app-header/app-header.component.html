@@ -13,9 +13,10 @@
 
 			<li [ngClass]="item.active?'active':''" *ngFor="let item of topTabList;" (click)="chgTab(item.menuName)">
 				<a routerLink="{{item.routeUrl}}"  >{{item.menuName}}
-					<i class="fa fa-remove tab-close" (click)="closeTab(item.menuName)"></i>
-				</a>
 
+				</a>
+				<!--  两次点击 删除按钮不能包含里面 -->
+				<i class="fa fa-remove tab-close" (click)="closeTab(item.menuName)"></i>
 			</li>
 		</ul>
 		<!-- Navbar Right Menu -->

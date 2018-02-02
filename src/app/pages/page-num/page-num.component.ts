@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {BreadcrumbService} from '../../services/breadcrumb.service';
 
 @Component({
   selector: 'app-page-num',
@@ -12,8 +11,7 @@ export class PageNumComponent implements OnInit, OnDestroy {
   private sub: any;
 
   constructor(
-    private route: ActivatedRoute,
-    private breadServ: BreadcrumbService
+    private route: ActivatedRoute
   ) {
     // TODO
   }

@@ -22,7 +22,6 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {ToasterModule} from 'angular2-toaster';
 import {RouterModule} from '@angular/router';
 import {BreadcrumbComponent} from './system/breadcrumb';
-import {BreadcrumbService} from './services/breadcrumb.service';
 import {MessagesService} from './services/messages.service';
 import {NotificationsService} from './services/notifications.service';
 import {LogoComponent} from './system/logo/logo.component';
@@ -33,6 +32,7 @@ import {MenuAsideComponent} from './system/menu-aside/menu-aside.component';
 import {LayoutComponent} from './system/layout.component';
 import {CookieService} from 'ngx-cookie-service';
 import {PageComponent} from './widgets/page/page.component';
+import {MenuService} from './services/menu.service';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
     return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json');
@@ -73,10 +73,9 @@ const pages = [
   providers: [CanActivateGuard,
       UserService,
      /* TranslateService,*/
-      BreadcrumbService,
       MessagesService,
       NotificationsService,
-      /*LoggerService,*/ CookieService
+      /*LoggerService,*/ CookieService, MenuService
   ],
   bootstrap: [
     AppComponent

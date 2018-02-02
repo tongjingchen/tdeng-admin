@@ -1,6 +1,5 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {MessagesService} from '../../services/messages.service';
-import {BreadcrumbService} from '../../services/breadcrumb.service';
 import {Page} from '../../models/page';
 
 @Component({
@@ -11,13 +10,12 @@ import {Page} from '../../models/page';
 export class HomeComponent implements OnInit, OnDestroy {
     public page: Page  ;
 
-    constructor(private msgServ: MessagesService,
-                private breadServ: BreadcrumbService) {
+    constructor(private msgServ: MessagesService ) {
         // TODO
     }
 
     public ngOnInit() {
-        this.breadServ.setCurrent({
+       /* this.breadServ.setCurrent({
             description: 'HomePage',
             display: true,
             header: 'Dashboard',
@@ -28,7 +26,7 @@ export class HomeComponent implements OnInit, OnDestroy {
                     title: 'Home'
                 }
             ]
-        });
+        });*/
         this.page = new Page(1, 10, 101);
 
 
@@ -37,7 +35,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     public chgPage(curPage: number ) {
         this.page.currentPage  = curPage;
         // 重新查询
-        console.log(curPage);
     }
 
     public ngOnDestroy() {
